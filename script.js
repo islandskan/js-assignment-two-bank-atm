@@ -3,8 +3,32 @@
 // Start by creating the object and the properties. You can leave the functions empty for now if you want.
 // You'll find all the information about what properties the object should have in the readme file.
 
+
+const account = {
+  accountName: "Sigridur Eggertsdottir",
+  balance: 100,
+  getBalance: function () {
+    return this.balance;
+  },
+  deposit: function () {
+
+  },
+  withdrawal: function () {
+
+  },
+  getAccountName: function () {
+    return this.accountName;
+  },
+  accountError: function () {
+
+  },
+  exitAccount: function () {
+
+  }
+};
+
 // In the deposit and withdrawal function use this code to show the prompt
-parseFloat(prompt("Put some proper message here"));
+parseFloat(prompt("This is a message"));
 // You need to change the message of course. You should also do some research why parseFloat() is used here
 // answer by making a comment in the code.
 // Be aware of that you need to add some code to this so you can display the actual input.
