@@ -60,7 +60,7 @@ const account = {
   },
   accountError: function () {
     prompt("Incorrect input: Please enter a number between 1-5!")
-    atm():
+    atm();
     // this should store the message and code that runs when user inputs incorrectly
     // the other functions should return this function
     // when action is finished, user should return to atm
@@ -120,12 +120,12 @@ function atm() {
 // ! alert("your code here and maybe properties");
 // !of course you need to put a proper message and you might need to display some of the properties.
 
-// STARTER FUNCTION
-// !the atm function should hold the menu(prompt) and the switch/if else statement to navigate the options
-// !Why do we use parseInt here and not in the object
+// // STARTER FUNCTION
+// // !the atm function should hold the menu(prompt) and the switch/if else statement to navigate the options
+// // !Why do we use parseInt here and not in the object
 
 
 
-  // !you can use the variable choice for your switch or if/else statement
-  // !so choice will hold the value of the user input.
-}
+//   // !you can use the variable choice for your switch or if/else statement
+//   // !so choice will hold the value of the user input.
+// }
