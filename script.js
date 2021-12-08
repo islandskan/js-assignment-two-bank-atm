@@ -1,31 +1,3 @@
-//The menu navigation
-function atm() {
-  let choice = parseInt(prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"));
-  switch(choice) {
-    case "1":
-      console.log("See balance");
-      break;
-    case "2":
-      console.log("Make a deposit");
-      break;
-    case "3":
-      console.log("Make a withdrawal");
-      break;
-    case "4":
-      console.log("See account name");
-      break;
-    case "5":
-      console.log("Exit");
-      break;
-    default:
-      console.log("Wrong input, valid input is number between 1-5. Please try again!");
-  }
-
-  /* I chose to use the switch statement for this function,
-  because I wanted to try it out to see if I can work with it in the future.
-  Also, I felt that for this specific assignment, I wanted to get a better and more instinctive
-  overview over the different choice options and what they prompt based on the user's input,
-  since this assignment is more complex than the last one*/
 
 // BANK ACCOUNT
 
@@ -33,11 +5,21 @@ const account = {
   accountName: "Sigridur Eggertsdottir",
   balance: 100, // value should be updated based on deposit or withdrawal
   getBalance: function () {
+      prompt(`The balance is: ${this.balance}`);
+    atm();
     // want to display in the prompt the current balance
     // balance should update based on the deposit or withdrawal
   },
   deposit: function () {
     parseFloat(prompt("How much would you like to deposit?"));
+    if(isNaN(this.deposit) || this.deposit === '') {
+      prompt(this.accountError);
+      this.deposit;
+    } else {
+      this.balance += this.deposit;
+      this.getBalance;
+    }
+    atm();
     // should ask for value to input
     // should let use input
     // input should update value of balance
@@ -47,7 +29,18 @@ const account = {
 
   },
   withdrawal: function () {
-    parseFloat(prompt("How much would you like to withdrawal?"));
+    parseFloat(prompt("How much would you like to withdraw?"));
+    if(isNaN(this.withdrawal || this.withdrawal === '')) {
+    prompt(this.accountError);
+    this.withdrawal;
+    } else if(this.withdrawal > this.balance) {
+      prompt(`Amount is greater than balance: Please try another amount`);
+      this.withdrawal;
+    } else {
+      this.balance -= this.withdrawal;
+      this.getBalance;
+    }
+    atm();
     // should ask for value to input
     // should let use input
     // input should update value of balance
@@ -57,9 +50,17 @@ const account = {
   getAccountName: function () {
     // should display the property accountName
     // when action is finished, use should return to atm
-
+    if(isNaN(this.getAccountName) || this.getAccountName === '') {
+      prompt(this.accountError);
+      this.getAccountName;
+    } else {
+      prompt(`Name of account: ${this.accountName}`);
+      atm();
+    }
   },
   accountError: function () {
+    prompt("Incorrect input: Please enter a number between 1-5!")
+    atm():
     // this should store the message and code that runs when user inputs incorrectly
     // the other functions should return this function
     // when action is finished, user should return to atm
@@ -67,16 +68,36 @@ const account = {
     // this function should run when user make incorrect input
   },
   exitAccount: function () {
+    const confirmExit = confirm("Are you sure you want to exit?");
+    if(this.confirmExit = true) {
+      window.close();
+    } else {
+      atm();
+    }
     // this should store closeWin method
     // should store the confirm method as well, to ask user to confirm action
     // when action is finished, the active browser window where the atm program is should close
 
   }
 };
-console.log(account);
-console.log(account.accountName);
-console.log(account.balance);
 
+//The menu navigation
+function atm() {
+  let choice = parseInt(prompt("Select a choice 1.) See balance 2.) Make a deposit 3.) Make a withdrawal 4.) Get account name 5.) Exit"));
+  if(choice === 1) {
+    return account.getBalance();
+  } else if(choice === 2) {
+    return account.deposit();
+  } else if(choice === 3) {
+    return account.withdrawal();
+  } else if(choice === 4) {
+    return account.getAccountName();
+  } else if(choice === 5) {
+    return account.exitAccount();
+  } else {
+    return account.accountError();
+  }
+  }
 
 // In the deposit and withdrawal function use this code to show the prompt
 // !Why do we use parseFloat(prompt)/parseInt(prompt)?
